@@ -1,0 +1,244 @@
+:root {
+  --primary-color: #0070f3; /* Next.js blue */
+  --secondary-color: #333;
+  --bg-color: #f7f7f7;
+  --card-bg: #ffffff;
+  --border-color: #eaeaea;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Layout and Structure --- */
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.main-layout {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+}
+
+/* --- Editor Section --- */
+
+.editor-container {
+  flex: 2; 
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--secondary-color);
+}
+
+.editor {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: monospace;
+  resize: vertical;
+  min-height: 300px;
+  transition: border-color 0.2s ease;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+}
+
+.editor-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.save-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.save-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.save-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.message {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.message:empty {
+  display: none;
+}
+
+.history-container {
+  flex: 1; /* Takes up less space */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.history-title {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.history-box {
+  overflow-y: auto;
+  max-height: 70vh; /* Adjust as needed */
+  padding-right: 10px; /* Space for scrollbar */
+}
+
+/* Custom Scrollbar for better look in history box */
+.history-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.history-box::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.no-versions {
+  text-align: center;
+  color: #999;
+  padding: 40px 0;
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+}
+
+.version-card {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.summary {
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.diff-line {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.content-preview {
+  margin-top: 10px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+.content-preview summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--primary-color);
+  user-select: none;
+}
+
+.content-preview pre {
+  background-color: var(--bg-color);
+  padding: 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 40px 0 20px 0;
+}
+
+.notes {
+  font-size: 0.85rem;
+  color: #777;
+  padding: 10px 0;
+}
