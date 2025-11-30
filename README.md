@@ -39,7 +39,6 @@ This project demonstrates frontend development, API creation, version tracking l
 - **UUID for version IDs**
 - **CSS (Custom Styles)**
 
----
 
-## 📂 Folder Structure
+
 
