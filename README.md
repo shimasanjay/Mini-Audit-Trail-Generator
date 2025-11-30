@@ -39,6 +39,34 @@ This project demonstrates frontend development, API creation, version tracking l
 - **UUID for version IDs**
 - **CSS (Custom Styles)**
 
+├── pages
+│ ├── index.js # Main UI
+│ └── api
+│ ├── versions.js # Get versions
+│ └── save-version.js # Save version
+├── styles
+│ ├── globals.css
+│ └── index.css
+├── utils
+│ └── compare.js # Diff logic
+├── data # Optional storage
+├── package.json
+└── README.md
+
+
+---
+
+## 🚀 Running the Project Locally
+
+### 1. Install dependencies
+```bash
+npm install
+
+npm run dev -- -p 3001
+
+http://localhost:3001
+
+
 
 
 
